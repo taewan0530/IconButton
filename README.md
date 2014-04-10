@@ -37,7 +37,7 @@ progress_style
     ```xml
 
 	<com.taewan.android.widget.IconButton
-		xmlns:app="http://schemas.android.com/apk/res/com.example.iconbuttonsample"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:id="@+id/btnicon_0"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
