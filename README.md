@@ -34,7 +34,6 @@ progress_style
 ====================
 
  Add the `IconButton`
-    ```xml
 
 	<com.taewan.android.widget.IconButton
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -47,8 +46,7 @@ progress_style
 		app:textSelected="0:selected color(#ff0000,hello)"
 		app:textSelectedPressed="0:selected pressed"
 		app:progress_style=“@android:attr/progressBarStyleSmall”/>
-    ```
-
+    
 
 ====================
 
