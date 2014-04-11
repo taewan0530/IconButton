@@ -118,7 +118,7 @@ public class IconButton extends RelativeLayout {
 					break;
 
 				case R.styleable.IconButton_android_drawablePadding:
-					drawablePadding = typedArray.getInt(attr, drawablePadding);
+					drawablePadding = typedArray.getDimensionPixelSize(attr, drawablePadding);
 					break;
 				case R.styleable.IconButton_android_drawableLeft:
 					drawables[DRAWABLE_LEFT] = typedArray.getDrawable(attr);
@@ -252,7 +252,7 @@ public class IconButton extends RelativeLayout {
 					mTextView.setText(mTextSelected);
 				}
 			} else {
-				if (mTextPressed != null) {
+				if (mTextDefault != null) {
 					mTextView.setText(mTextDefault);
 				}
 			}
