@@ -46,7 +46,6 @@ progress_style
 		app:textPressed="0:pressed"
 		app:textSelected="0:selected color(#ff0000,hello)"
 		app:textSelectedPressed="0:selected pressed"
-		app:progress_used=“true"
 		app:progress_style=“@android:attr/progressBarStyleSmall”/>
     ```
 
