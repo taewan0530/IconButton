@@ -16,15 +16,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int progress_style=0x7f010005;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static int progress_used=0x7f010004;
+        public static int progress_style=0x7f010004;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -118,7 +110,6 @@ containing a value of this type.
            <tr><td><code>{@link #IconButton_android_textStyle android:textStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #IconButton_android_typeface android:typeface}</code></td><td></td></tr>
            <tr><td><code>{@link #IconButton_progress_style com.taewan.android.widget:progress_style}</code></td><td></td></tr>
-           <tr><td><code>{@link #IconButton_progress_used com.taewan.android.widget:progress_used}</code></td><td></td></tr>
            <tr><td><code>{@link #IconButton_textDisabled com.taewan.android.widget:textDisabled}</code></td><td></td></tr>
            <tr><td><code>{@link #IconButton_textPressed com.taewan.android.widget:textPressed}</code></td><td></td></tr>
            <tr><td><code>{@link #IconButton_textSelected com.taewan.android.widget:textSelected}</code></td><td></td></tr>
@@ -136,7 +127,6 @@ containing a value of this type.
            @see #IconButton_android_textStyle
            @see #IconButton_android_typeface
            @see #IconButton_progress_style
-           @see #IconButton_progress_used
            @see #IconButton_textDisabled
            @see #IconButton_textPressed
            @see #IconButton_textSelected
@@ -146,8 +136,7 @@ containing a value of this type.
             0x01010095, 0x01010096, 0x01010097, 0x01010098,
             0x01010099, 0x0101014f, 0x0101016d, 0x0101016e,
             0x0101016f, 0x01010170, 0x01010171, 0x7f010000,
-            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004,
-            0x7f010005
+            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004
         };
         /**
           <p>This symbol is the offset where the {@link android.R.attr#drawableBottom}
@@ -228,21 +217,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.taewan.android.widget:progress_style
         */
-        public static final int IconButton_progress_style = 16;
-        /**
-          <p>This symbol is the offset where the {@link com.taewan.android.widget.R.attr#progress_used}
-          attribute's value can be found in the {@link #IconButton} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.taewan.android.widget:progress_used
-        */
-        public static final int IconButton_progress_used = 15;
+        public static final int IconButton_progress_style = 15;
         /**
           <p>This symbol is the offset where the {@link com.taewan.android.widget.R.attr#textDisabled}
           attribute's value can be found in the {@link #IconButton} array.

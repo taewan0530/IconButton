@@ -20,7 +20,6 @@
         <attr name="textSelected" format="string" />
         <attr name="textSelectedPressed" format="string" />
         
-        <attr name="progress_used" format="boolean"/>
         <attr name="progress_style" format="integer"/>
     </declare-styleable>
     

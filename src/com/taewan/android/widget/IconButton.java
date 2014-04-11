@@ -46,38 +46,25 @@ public class IconButton extends RelativeLayout {
 
 	public IconButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.IconButton);
+		mProgressBarStyle = typedArray.getResourceId(R.styleable.IconButton_progress_style, mProgressBarStyle);
 		setTextAttrs(attrs);
-		setProgressBarAttrs(attrs);
 	}
 
 	public IconButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.IconButton);
+		mProgressBarStyle = typedArray.getResourceId(R.styleable.IconButton_progress_style, mProgressBarStyle);
 		setTextAttrs(attrs);
-		setProgressBarAttrs(attrs);
 	}
+	private int mProgressBarStyle = 0;
 
-	private void setProgressBarAttrs(AttributeSet attrs) {
-		TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
-				R.styleable.IconButton);
-		if (typedArray.getBoolean(R.styleable.IconButton_progress_used, false)) {
-			int defStyle = typedArray.getResourceId(
-					R.styleable.IconButton_progress_style, 0);
-			if (defStyle != 0) {
-				mProgressBar = new ProgressBar(getContext(), null, defStyle);
-			} else {
-				mProgressBar = new ProgressBar(getContext());
-			}
-
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.WRAP_CONTENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-			lp.addRule(RelativeLayout.CENTER_IN_PARENT);
-			mProgressBar.setLayoutParams(lp);
-		}
-	}
 
 	private void setTextAttrs(AttributeSet attrs) {
+		if (this.getBackground() == null){
+			this.setBackgroundResource(android.R.drawable.btn_default);
+		}
+		
 		TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
 				R.styleable.IconButton);
 
@@ -165,15 +152,13 @@ public class IconButton extends RelativeLayout {
 		mTextView.setCompoundDrawablesWithIntrinsicBounds(
 				drawables[DRAWABLE_LEFT], drawables[DRAWABLE_TOP],
 				drawables[DRAWABLE_RIGHT], drawables[DRAWABLE_BOTTOM]);
-
 		setTypefaceByIndex(typefaceIndex, styleIndex);
-
-		if (this.getBackground() == null)
-			this.setBackgroundResource(android.R.drawable.btn_default);
 
 		this.update();
 		this.addView(mTextView);
+		
 	}
+	
 
 	private void setTypefaceByIndex(int typefaceIndex, int styleIndex) {
 		Typeface tf = null;
@@ -195,20 +180,31 @@ public class IconButton extends RelativeLayout {
 	}
 
 	public void setProgressed(boolean progressed) {
-		if (mProgressBar != null) {
-			if (progressed) {
-				if (mTextView != null)
-					mTextView.setVisibility(View.INVISIBLE);
-				if (mProgressBar.getParent() == null)
-					this.addView(mProgressBar);
-				this.setEnabled(false);
+		if(mProgressBar == null){
+			if (mProgressBarStyle != 0) {
+				mProgressBar = new ProgressBar(getContext(), null, mProgressBarStyle);
 			} else {
-				if (mTextView != null)
-					mTextView.setVisibility(View.VISIBLE);
-				if (mProgressBar.getParent() != null)
-					this.removeView(mProgressBar);
-				this.setEnabled(true);
+				mProgressBar = new ProgressBar(getContext());
 			}
+			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+					RelativeLayout.LayoutParams.WRAP_CONTENT,
+					RelativeLayout.LayoutParams.WRAP_CONTENT);
+			lp.addRule(RelativeLayout.CENTER_IN_PARENT);
+			mProgressBar.setLayoutParams(lp);
+		}
+		
+		if (progressed) {
+			if (mTextView != null)
+				mTextView.setVisibility(View.INVISIBLE);
+			if (mProgressBar.getParent() == null)
+				this.addView(mProgressBar);
+			this.setEnabled(false);
+		} else {
+			if (mTextView != null)
+				mTextView.setVisibility(View.VISIBLE);
+			if (mProgressBar.getParent() != null)
+				this.removeView(mProgressBar);
+			this.setEnabled(true);
 		}
 	}
 
@@ -269,7 +265,6 @@ public class IconButton extends RelativeLayout {
 					+ "</FONT>";
 			text = text.replace(m.group(0), a);
 		}
-		Log.d("taewan", text);
 		return Html.fromHtml(text);
 	}
 
@@ -312,6 +307,18 @@ public class IconButton extends RelativeLayout {
 
 	public void setTextSelectedPressed(String mTextSelectedPressed) {
 		this.mTextSelectedPressed = patternColor(mTextSelectedPressed);
+	}
+	
+	@Override
+	public void setBackgroundResource(int resid) {
+	    int pl = getPaddingLeft();
+	    int pt = getPaddingTop();
+	    int pr = getPaddingRight();
+	    int pb = getPaddingBottom();
+
+	    super.setBackgroundResource(resid);
+
+	    this.setPadding(pl, pt, pr, pb);
 	}
 }
 //
